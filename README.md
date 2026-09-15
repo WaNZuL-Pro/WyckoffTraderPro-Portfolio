@@ -16,7 +16,7 @@ The project focuses on building a workflow that is structured, traceable, explai
 
 ## High-Level Architecture
 
-![WyckoffTraderPro Architecture](diagrams/architecture-diagram.png)
+![WyckoffTraderPro Architecture](diagrams/wyckofftraderpro_architecture_clean.png)
 
 ```text
 Market Data API
@@ -51,7 +51,7 @@ Cloud Logging / Telegram / Reports
 
 ## Signal & Paper-Trade Workflow
 
-![WyckoffTraderPro Workflow](diagrams/workflow-diagram.png)
+![WyckoffTraderPro Workflow](diagrams/wyckofftraderpro_workflow_clean.png)
 
 The workflow moves from scheduled data processing through analysis, signal generation, paper execution, order synchronisation and operational visibility.
 
