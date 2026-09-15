@@ -1,283 +1,231 @@
-````
 # WyckoffTraderPro
 
 ## Cloud Engineering & Trading Automation Portfolio
 
-WyckoffTraderPro is a personal cloud-based trading-engineering project designed to process market data, detect trading opportunities, generate trading signals and support paper-trading analysis.
+> A personal engineering case study covering cloud-based market-data processing, trading automation, paper-trading workflows, monitoring, troubleshooting and cost-conscious system design.
 
-The project combines cloud operations, serverless processing, database management, API integration, monitoring, troubleshooting and cost optimisation.
-
-> The main source code and sensitive configuration are kept in a separate private repository.
+**Main source code:** kept in a separate private repository.
 
 ---
 
 ## Project Overview
 
-WyckoffTraderPro is designed around a controlled trading-engineering workflow:
+WyckoffTraderPro is a personal cloud-based trading-engineering project designed to process market data, evaluate market structure and trading setups, generate trading signals and support paper-trading analysis.
+
+The project focuses on building a workflow that is structured, traceable, explainable, monitorable and cost-conscious.
+
+## High-Level Architecture
+
+![WyckoffTraderPro Architecture](diagrams/architecture-diagram.png)
 
 ```text
 Market Data API
-      ↓
-Scheduled Cloud Functions
-      ↓
+       |
+       v
+Cloud Scheduler
+       |
+       v
+Cloud Functions / Cloud Run
+       |
+       v
 Cloud Firestore
-      ↓
-Recent Candle Cache
-      ↓
-Structure / Setup Analysis
-      ↓
-Decision Engine
-      ↓
+       |
+       v
+Recent-Candle Cache
+       |
+       v
+Structure & Decision Engine
+       |
+       v
 Trading Signals
-      ↓
+       |
+       v
 Paper Trading
-      ↓
+       |
+       v
 Order Synchronisation
-      ↓
-Reports / Telegram Notifications
-````
+       |
+       v
+Cloud Logging / Telegram / Reports
+```
 
-The project focuses on building a reliable and explainable process rather than relying on a single trading script.
+## Signal & Paper-Trade Workflow
 
+![WyckoffTraderPro Workflow](diagrams/workflow-diagram.png)
+
+The workflow moves from scheduled data processing through analysis, signal generation, paper execution, order synchronisation and operational visibility.
+
+---
 
 ## Main Objectives
 
-* Process market data efficiently
+- Process market data efficiently
+- Detect market structure and trading setups
+- Generate and track trading signals
+- Support paper-trading workflows
+- Synchronise order and trade status
+- Investigate runtime and operational errors
+- Monitor system behaviour through logs and notifications
+- Control cloud usage and API costs
+- Support backtesting and shadow-mode analysis
 
-* Detect market structure and trading setups
+---
 
-* Generate and track trading signals
+## My Role
 
-* Support paper-trading workflows
+As the project owner and developer, I designed, developed, operated and improved the overall workflow.
 
-* Synchronise order and trade status
+Responsibilities included:
 
-* Investigate runtime and operational errors
+- Developing JavaScript / Node.js functions
+- Integrating market-data and paper-trading APIs
+- Designing Firestore data flow
+- Building scheduled processing workflows
+- Investigating runtime and synchronisation issues
+- Reviewing cloud logs and operational failures
+- Applying caching, batching and retry strategies
+- Performing backtesting and shadow analysis
+- Documenting architecture and technical lessons
 
-* Monitor system behaviour through logs and notifications
-
-* Control cloud usage and API costs
-
-* Support backtesting and shadow-mode analysis
-  
-  
+---
 
 ## Technology Stack
 
-### Programming
+| Area | Technologies / Concepts |
+|---|---|
+| Programming | JavaScript, Node.js, Python for selected analysis tasks |
+| Cloud | Google Cloud Functions, Cloud Run runtime, Firebase ecosystem |
+| Database | Cloud Firestore |
+| Scheduling | Cloud Scheduler |
+| Monitoring | Cloud Logging and diagnostic records |
+| Integration | Market-data API, paper-trading API, Telegram Bot API |
+| Development | Visual Studio Code, Git and GitHub |
+| Analysis | CSV / JSON processing, backtesting and shadow-mode analysis |
 
-* JavaScript
+---
 
-* Node.js
-
-* Python for selected analysis and data-processing tasks
-
-### Cloud & Infrastructure
-
-* Google Cloud Functions
-
-* Cloud Run runtime
-
-* Cloud Firestore
-
-* Cloud Scheduler
-
-* Cloud Logging
-
-* Firebase ecosystem
-
-### Integration
-
-* Market-data API
-
-* Trading / paper-trading API
-
-* Telegram Bot API
-
-### Development & Analysis
-
-* Visual Studio Code
-
-* Git and GitHub
-
-* CSV / JSON data processing
-
-* Backtesting
-
-* Shadow-mode analysis
-
-* Runtime log investigation
-
-
-  
 ## Engineering Challenges
 
-### 1. Signal Consistency
+### Signal Consistency
 
-Investigated signal flow between live signals and paper-trading signals, including duplicate-signal handling and missed signal scenarios.
+Investigated signal flow between live signals and paper-trading signals, including duplicate-signal handling and missed-signal scenarios.
 
-### 2. Weak or Rejected Setups
+### Weak or Rejected Setups
 
-Reviewed setup confirmation, risk-reward requirements and confidence levels to improve signal quality.
+Reviewed setup confirmation, risk-reward requirements and confidence levels to make signal decisions more traceable.
 
-### 3. Cloud Runtime Errors
+### Cloud Runtime Errors
 
-Investigated serverless runtime errors, function exports/imports and errors related to missing or incorrectly referenced functions.
+Investigated serverless runtime errors, function exports/imports and incorrectly referenced functions.
 
-### 4. Order Synchronisation
+### Order Synchronisation
 
 Reviewed polling, order-status updates, terminal states and manual-close detection.
 
-### 5. Telegram Notification Problems
+### Telegram Notification Problems
 
 Investigated HTTP errors and message-length limitations affecting trading notifications.
 
-### 6. API and Cloud Cost Pressure
+### API and Cloud Cost Pressure
 
-Applied incremental fetching, batching, caching, bounded retries and targeted database queries to reduce unnecessary usage.
+Applied incremental fetching, batching, caching, bounded retries and targeted database queries.
 
+---
 
 ## Cost Optimisation Practices
 
-The project applies several cost-conscious engineering practices:
+- Incremental market-data retrieval
+- Controlled historical backfill
+- Multi-symbol and batch processing
+- Rate limiting and HTTP 429 handling
+- Bounded retry and exponential backoff
+- Recent-candle tail caching
+- Deterministic candle identifiers
+- Batched Firestore writes
+- Targeted queries for active and due trades
+- Terminal-state filtering
+- Scheduled polling controls
+- Housekeeping and retention practices
+- Budget monitoring and cost review
 
-* Incremental market-data retrieval
-
-* Historical backfill in controlled batches
-
-* Multi-symbol and batch processing
-
-* Rate limiting
-
-* Handling of HTTP 429 responses
-
-* Bounded retry and exponential backoff
-
-* Recent-candle tail caching
-
-* Deterministic candle identifiers
-
-* Batched Firestore writes
-
-* Targeted queries for active and due trades
-
-* Terminal-state filtering
-
-* Scheduled polling controls
-
-* Housekeeping and retention practices
-
-* Budget monitoring and cost review
-
-  
-
-## Monitoring & Troubleshooting
-
-Operational investigation includes:
-
-* Cloud runtime logs
-
-* Function execution errors
-
-* Scheduler and timeout issues
-
-* Database state inconsistencies
-
-* Duplicate signal diagnostics
-
-* Order-status mismatches
-
-* Telegram delivery failures
-
-* Data-processing and synchronisation issues
-
-The project aims to make system behaviour traceable through logs, diagnostic statuses and operational records.
-
-
-
-## Portfolio Evidence
-
-The portfolio will include selected screenshots and documentation covering:
-
-* Cloud deployment
-
-* Runtime logs
-
-* Firestore records
-
-* Trading signal flow
-
-* Telegram notifications
-
-* System architecture
-
-* Troubleshooting examples
-
-* Cost optimisation practices
-
-  
+---
 
 ## Repository Structure
 
-The public portfolio repository contains documentation and selected project evidence.
-
-The main application source code is maintained separately in a private repository.
-
-```
+```text
 WyckoffTraderPro-Portfolio/
-│
-├── README.md
-├── docs/
-├── screenshots/
-└── diagrams/
+|
+|-- README.md
+|
+|-- docs/
+|   `-- WyckoffTraderPro_Portfolio_WaNZuL-Pro.pdf
+|
+|-- screenshots/
+|   |-- cloud-logging.png
+|   |-- firestore-trade-record.png
+|   |-- telegram-notification.png
+|   `-- github-repository.png
+|
+`-- diagrams/
+    |-- architecture-diagram.png
+    `-- workflow-diagram.png
 ```
 
-## Security Note
+## Portfolio Documents
 
-The following information must not be published:
+- [Project Portfolio](docs/WyckoffTraderPro_Portfolio_WaNZuL-Pro.pdf)
 
-* API keys
+> The portfolio link will work after the PDF is uploaded to the `docs/` folder.
 
-* Trading account credentials
+---
 
-* Telegram bot tokens
+## Portfolio Evidence
 
-* Firebase service-account files
+Selected evidence may include:
 
-* Private keys
+- Cloud deployment
+- Runtime logs
+- Firestore records
+- Trading signal flow
+- Paper-trade status
+- Telegram notifications
+- System architecture
+- Troubleshooting examples
+- Cost-optimisation practices
 
-* `.env` files
+Remove sensitive information before publishing screenshots.
 
-* Private database exports
+---
 
-* Sensitive personal or account information
+## Security and Source Code
 
-  
+The main application source code remains in a separate **private repository**.
+
+Do not publish:
+
+- API keys
+- Trading account credentials
+- Telegram bot tokens
+- Firebase service-account files
+- Private keys
+- `.env` files
+- Private database exports
+- Sensitive personal or account information
+- Internal production configuration
+- Full private application source code
+
+---
+
 ## Project Status
 
-This portfolio is being developed progressively as the WyckoffTraderPro project evolves.
+WyckoffTraderPro is an evolving personal engineering project.
 
-Future improvements may include:
+Future improvements may include more detailed diagrams, additional screenshots, public-safe code examples, testing documentation, deployment notes and troubleshooting case studies.
 
-* More detailed architecture diagrams
-
-* Additional screenshots
-
-* Public-safe code examples
-
-* Testing documentation
-
-* Deployment documentation
-
-* Troubleshooting case studies
-
-* Project demonstration materials
-  
+---
 
 ## Disclaimer
 
-This is a personal engineering and trading-automation project.
+This project is presented as a **cloud engineering, automation and paper-trading case study**.
 
-Any trading objectives, strategy results or backtesting figures are provided for engineering and analysis context only. They are not financial advice or a guarantee of future trading performance.
-
-````
+Any trading objectives, strategy results or historical analysis are provided for engineering and analysis context only. They are not financial advice and are not a guarantee of future trading performance.
