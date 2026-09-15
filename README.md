@@ -173,7 +173,7 @@ WyckoffTraderPro-Portfolio/
 
 ## Portfolio Documents
 
-- [Project Portfolio](docs/WyckoffTraderPro_Portfolio_WaNZuL-Pro.pdf)
+- [Project Portfolio](docs/WyckoffTraderPro_Portfolio_WaNZuL-Pro.docx)
 
 > The portfolio link will work after the PDF is uploaded to the `docs/` folder.
 
