@@ -148,7 +148,7 @@ WyckoffTraderPro-Portfolio/
 
 ## Portfolio Evidence
 
-- [Project Portfolio](screenshots/)
+- [Project Screenshots](screenshots/)
 
 Selected evidence may include:
 
