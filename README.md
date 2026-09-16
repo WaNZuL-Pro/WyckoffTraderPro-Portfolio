@@ -18,37 +18,6 @@ The project focuses on building a workflow that is structured, traceable, explai
 
 ![WyckoffTraderPro Architecture](diagrams/wyckofftraderpro_architecture_clean.png)
 
-```text
-Market Data API
-       |
-       v
-Cloud Scheduler
-       |
-       v
-Cloud Functions / Cloud Run
-       |
-       v
-Cloud Firestore
-       |
-       v
-Recent-Candle Cache
-       |
-       v
-Structure & Decision Engine
-       |
-       v
-Trading Signals
-       |
-       v
-Paper Trading
-       |
-       v
-Order Synchronisation
-       |
-       v
-Cloud Logging / Telegram / Reports
-```
-
 ## Signal & Paper-Trade Workflow
 
 ![WyckoffTraderPro Workflow](diagrams/wyckofftraderpro_workflow_clean.png)
@@ -175,11 +144,11 @@ WyckoffTraderPro-Portfolio/
 
 - [Project Portfolio](docs/WyckoffTraderPro_Portfolio_WaNZuL-Pro.pdf)
 
-> The portfolio link will work after the PDF is uploaded to the `docs/` folder.
-
 ---
 
 ## Portfolio Evidence
+
+- [Project Portfolio](screenshots/)
 
 Selected evidence may include:
 
@@ -193,15 +162,13 @@ Selected evidence may include:
 - Troubleshooting examples
 - Cost-optimisation practices
 
-Remove sensitive information before publishing screenshots.
-
 ---
 
 ## Security and Source Code
 
 The main application source code remains in a separate **private repository**.
 
-Do not publish:
+Will not publish:
 
 - API keys
 - Trading account credentials
